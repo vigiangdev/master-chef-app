@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Master Chef - Search</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container-fluid my-2 navbar-title">
+            <div class="col-md-6 col-lg-4">
+                <a class="navbar-brand" href="./index.html">MASTER CHEF</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                </button>
+            </div>
+
+            <div class="col-md-6 col-lg-4 offset-lg-4">
+                <form action="search.html" class="input-group" id="search-form-primary" method="GET">
+                    <input type="text" name="query" class="form-control" aria-label="Dish options"
+                        placeholder="Search Recipe">
+                    <div class="input-group-append">
+                        <button type="submit" class="btn btn-outline-secondary"><svg class="bi bi-search" width="1em"
+                                height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M10.442 10.442a1 1 0 011.415 0l3.85 3.85a1 1 0 01-1.414 1.415l-3.85-3.85a1 1 0 010-1.415z"
+                                    clip-rule="evenodd" />
+                                <path fill-rule="evenodd"
+                                    d="M6.5 12a5.5 5.5 0 100-11 5.5 5.5 0 000 11zM13 6.5a6.5 6.5 0 11-13 0 6.5 6.5 0 0113 0z"
+                                    clip-rule="evenodd" />
+                            </svg></button>
+                        <button type="button" class="btn btn-success" data-toggle="modal"
+                            data-target="#dish-option-modal">
+                            <svg class="bi bi-chevron-expand" width="1em" height="1em" viewBox="0 0 16 16"
+                                fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M3.646 9.146a.5.5 0 01.708 0L8 12.793l3.646-3.647a.5.5 0 01.708.708l-4 4a.5.5 0 01-.708 0l-4-4a.5.5 0 010-.708zm0-2.292a.5.5 0 00.708 0L8 3.207l3.646 3.647a.5.5 0 00.708-.708l-4-4a.5.5 0 00-.708 0l-4 4a.5.5 0 000 .708z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Modal -->
+        <div class="modal fade" id="dish-option-modal" tabindex="-1" role="dialog" aria-labelledby="dishModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+
+                <form action="search.html" class="modal-content" id="search-form-modal" method="GET">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Refine Search</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+
+                        <input type="text" class="form-control my-3" name="query" aria-label="Dish options"
+                            placeholder="Search Recipe" required>
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="input-group-select-cuisine">Cuisine</label>
+                            </div>
+                            <select class="custom-select" id="input-group-select-cuisine" name="cuisine">
+                                <option value="" selected>-</option>
+                                <option value="african">African</option>
+                                <option value="chinese">Chinese</option>
+                                <option value="japanese">Japanese</option>
+                                <option value="korean">Korean</option>
+                                <option value="vietnamese">Vietnamese</option>
+                                <option value="thai">Thai</option>
+                                <option value="indian">Indian</option>
+                                <option value="british">British</option>
+                                <option value="irish">Irish</option>
+                                <option value="french">French</option>
+                                <option value="italian">Italian</option>
+                                <option value="mexican">Mexican</option>
+                                <option value="spanish">Spanish</option>
+                                <option value="middle eastern">Middle Eastern</option>
+                                <option value="jewish">Jewish</option>
+                                <option value="american">American</option>
+                                <option value="cajun">Cajun</option>
+                                <option value="southern">Southern</option>
+                                <option value="greek">Greek</option>
+                                <option value="german">German</option>
+                                <option value="nordic">Nordic</option>
+                                <option value="eastern european">Eastern European</option>
+                                <option value="caribbean">Caribbean</option>
+                                <option value="latin america">Latin America</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="input-group-select-diet">Diet</label>
+                            </div>
+                            <select class="custom-select" id="input-group-select-diet" name="diet">
+                                <option value="" selected>-</option>
+                                <option value="pescatarian">Pescatarian</option>
+                                <option value="lacto vegetarian">Lacto Vegetarian</option>
+                                <option value="ovo vegetarian">Ovo Vegetarian</option>
+                                <option value="vegan">Vegan</option>
+                                <option value="vegetarian">Vegetarian</option>
+                            </select>
+                        </div>
+
+                        <input type="text" class="form-control my-3" id="input-exclude-ing" name="excludeIngredients"
+                            aria-label="Dish options" placeholder="Ingredients To Exclude">
+
+                        <input type="text" class="form-control my-3" id="input-intolerances" name="intolerances"
+                            aria-label="Dish options" placeholder="Intolerances">
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="input-group-select-type">Meal Type</label>
+                            </div>
+                            <select class="custom-select" id="input-group-select-type" name="type">
+                                <option value="" selected>-</option>
+                                <option value="main course">Main Course</option>
+                                <option value="side dish">Side Dish</option>
+                                <option value="dessert">Dessert</option>
+                                <option value="appetizer">Appetizer</option>
+                                <option value="salad">Salad</option>
+                                <option value="bread">Bread</option>
+                                <option value="breakfast">Breakfast</option>
+                                <option value="soup">Soup</option>
+                                <option value="beverage">Beverage</option>
+                                <option value="sauce">Sauce</option>
+                                <option value="drink">Drink</option>
+                            </select>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-success recipeSubmit">Search</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="search-list-body">
+        <h1>Search Results</h1>
+        <div class="row dishes-list">
+            <!-- list items -->
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
